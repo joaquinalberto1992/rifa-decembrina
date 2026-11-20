@@ -1,4 +1,4 @@
-const CACHE = 'rifas-adriana-yuniva-shell-v1';
+const CACHE = 'rifas-adriana-yuniva-shell-v2';
 const SHELL = ['/rifas-ay-icon.png', '/rifas-adriana-yuniva-logo.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));

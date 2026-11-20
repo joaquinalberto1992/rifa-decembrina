@@ -1,0 +1,7 @@
+.prizeItems{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 16px;margin:22px 0 25px;padding:0;list-style:none}
+.prizeItems li{display:grid;grid-template-columns:31px 1fr;align-items:start;gap:9px;padding:10px 0;border-top:1px solid #c69e5838;color:#e7d9d4;font-size:11px;line-height:1.5}
+.prizeItems li b{display:grid;place-items:center;width:26px;height:26px;border:1px solid #d7b45f;border-radius:50%;color:#f1d58f;font-size:9px}
+.unverifiedSelection,.reservationWarning{padding:11px 13px;border:1px solid #d5ad59;border-radius:10px;background:#51200b;color:#ffe7ad;font-size:11px;line-height:1.55}
+.heroArtwork .imageCaption{padding:8px 12px;border:1px solid #edca8066;border-radius:999px;background:#24070fdd;color:#ffe8b2;text-align:center}
+.prizeFeatureCopy .goldPill{line-height:1.5}
+@media(max-width:620px){.prizeItems{grid-template-columns:1fr;gap:2px;margin:17px 0 22px}.prizeItems li{padding:8px 0;font-size:10px}.heroArtwork .imageCaption{font-size:7px}.unverifiedSelection{font-size:9px}}

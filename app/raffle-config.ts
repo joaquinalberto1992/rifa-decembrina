@@ -1,4 +1,4 @@
-export const RAFFLE_TITLE = 'Rifa Decembrina 2026';
+export const RAFFLE_TITLE = 'Gran Rifa Decembrina Premium 2026';
 export const BRAND_NAME = 'Rifas de Adriana Yuniva';
 export const TICKET_COUNT = 9000;
 export const TICKET_PRICE = 10;
@@ -9,8 +9,18 @@ export const ORDER_COLLECTION = 'adrianaOrders';
 export const DRAW_COLLECTION = 'adrianaRaffle';
 export const DRAW_DOCUMENT = 'decembrina-2026';
 export const ADMIN_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL || '';
-export const PRIZE_NAME = process.env.NEXT_PUBLIC_RAFFLE_PRIZE || 'iPhone 18 Pro Max o $25,000 MXN en efectivo';
+export const PRIZE_NAME = 'Paquete Premium de Bebidas y Accesorios o $25,000 MXN en efectivo';
 export const DRAW_DATE = process.env.NEXT_PUBLIC_DRAW_DATE || '24 de diciembre de 2026 · hora por confirmar';
+export const PRIZE_ITEMS = [
+  '3 Buchanan’s 18 años (750 ml c/u)',
+  '1 Hpnotiq (750 ml)',
+  '3 Stella Rosa Pink (750 ml c/u)',
+  '2 Gran Centenario Añejo (700 ml c/u)',
+  '1 Don Julio 70 Cristalino (700 ml)',
+  '2 Johnnie Walker Black Label 12 años (750 ml c/u)',
+  '1 hielera Igloo de alta capacidad',
+  'Accesorios premium de servicio: shaker, jigger, colador, cuchara de bar, vasos de cristal, servilletas y pinzas',
+] as const;
 
 // Only these bundle prices have been confirmed. Other quantities use the
 // best-value combination of these bundles plus the $10 single-ticket price.

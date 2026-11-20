@@ -1,6 +1,15 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { priceFor, TICKET_COUNT, BASE_INVESTMENT } from './raffle-config.ts';
+import { priceFor, TICKET_COUNT, BASE_INVESTMENT, WHATSAPP_NUMBER, PRIZE_NAME, PRIZE_ITEMS } from './raffle-config.ts';
+
+test('keeps the Decembrina raffle inventory, contact, and prize correct', () => {
+  assert.equal(TICKET_COUNT, 9000);
+  assert.equal(WHATSAPP_NUMBER, '524792293687');
+  assert.match(PRIZE_NAME, /bebidas y accesorios/i);
+  assert.match(PRIZE_NAME, /25,000 MXN/i);
+  assert.ok(PRIZE_ITEMS.some(item => /hielera Igloo/i.test(item)));
+  assert.ok(PRIZE_ITEMS.some(item => /Buchanan/i.test(item)));
+});
 
 test('uses the confirmed individual and bundle prices', () => {
   assert.equal(priceFor(1).total, 10);

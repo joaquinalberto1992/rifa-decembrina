@@ -10,7 +10,7 @@ PWA independiente para la Rifa Decembrina 2026. Este proyecto no usa ni modifica
 - Atención y apartado por WhatsApp: +52 479 229 3687.
 - Inversión base estimada: $14,984; los permisos y gastos legales adicionales siguen pendientes.
 - OXXO se mantiene pendiente de validación y no se ofrece para cobrar.
-- Premio mostrado según el volante: iPhone 18 Pro Max o $25,000 MXN en efectivo. Fecha mostrada: 24 de diciembre de 2026; la hora y el correo administrador deben confirmarse antes de abrir ventas.
+- Premio: paquete premium de bebidas y accesorios con hielera Igloo, o alternativa de $25,000 MXN en efectivo. Valor estimado mostrado en la referencia: $15,000 MXN. Fecha mostrada: 24 de diciembre de 2026; la hora y el correo administrador deben confirmarse antes de abrir ventas.
 
 ## Control financiero
 
@@ -44,4 +44,4 @@ npm run lint
 npm run build
 ```
 
-La app no tiene credenciales Firebase incluidas. Mientras falte configuración, los números y funciones de escritura permanecen desactivados por diseño.
+La app no tiene credenciales Firebase incluidas. Mientras falte configuración, se puede preparar una solicitud con números sugeridos y abrir WhatsApp al +52 479 229 3687, pero esa solicitud no bloquea boletos ni confirma disponibilidad. Para apartados sin colisiones, pagos y conteos en vivo se requiere configurar Firebase nuevo y exclusivo de esta rifa.
