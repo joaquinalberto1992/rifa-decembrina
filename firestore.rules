@@ -1,0 +1,77 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email == 'ADMIN_EMAIL_TO_CONFIGURE';
+    }
+    function resultExists() {
+      return exists(/databases/$(database)/documents/adrianaRaffle/decembrina-2026);
+    }
+    function drawLocked() {
+      return resultExists() || exists(/databases/$(database)/documents/adrianaRaffle/draw-lock);
+    }
+    function validTicket(number) {
+      return number is int && number >= 1 && number <= 9000;
+    }
+
+    // The public can see ticket state only; buyer details live in private orders.
+    match /adrianaTickets/{ticketId} {
+      allow read: if true;
+      allow create: if !drawLocked()
+        && request.resource.data.keys().hasOnly(['number', 'status', 'orderId', 'updatedAt'])
+        && request.resource.data.number == int(ticketId)
+        && validTicket(request.resource.data.number)
+        && request.resource.data.status == 'reserved'
+        && request.resource.data.orderId is string
+        && request.resource.data.orderId.size() >= 16
+        && getAfter(/databases/$(database)/documents/adrianaOrders/$(request.resource.data.orderId)).data.orderId == request.resource.data.orderId
+        && ticketId in getAfter(/databases/$(database)/documents/adrianaOrders/$(request.resource.data.orderId)).data.ticketIds
+        && request.resource.data.number in getAfter(/databases/$(database)/documents/adrianaOrders/$(request.resource.data.orderId)).data.numbers;
+      allow update: if !drawLocked() && isAdmin()
+        && request.resource.data.keys().hasOnly(['number', 'status', 'orderId', 'updatedAt'])
+        && request.resource.data.number == resource.data.number
+        && request.resource.data.orderId == resource.data.orderId
+        && resource.data.status == 'reserved'
+        && request.resource.data.status == 'paid';
+      allow delete: if !drawLocked() && isAdmin();
+    }
+
+    match /adrianaOrders/{orderId} {
+      allow read: if isAdmin();
+      allow create: if !drawLocked()
+        && request.resource.data.keys().hasOnly(['orderId', 'buyer', 'phone', 'payment', 'ticketIds', 'numbers', 'firstTicketId', 'orderCount', 'orderTotal', 'createdAt'])
+        && request.resource.data.orderId == orderId
+        && request.resource.data.buyer is string
+        && request.resource.data.buyer.size() >= 2
+        && request.resource.data.buyer.size() <= 100
+        && request.resource.data.phone is string
+        && request.resource.data.phone.size() >= 7
+        && request.resource.data.phone.size() <= 25
+        && request.resource.data.payment in ['transferencia', 'efectivo']
+        && request.resource.data.ticketIds is list
+        && request.resource.data.numbers is list
+        && request.resource.data.ticketIds.size() >= 1
+        && request.resource.data.ticketIds.size() <= 100
+        && request.resource.data.numbers.size() == request.resource.data.ticketIds.size()
+        && request.resource.data.orderCount == request.resource.data.ticketIds.size()
+        && request.resource.data.firstTicketId is string
+        && request.resource.data.firstTicketId in request.resource.data.ticketIds
+        && request.resource.data.orderTotal is number
+        && request.resource.data.orderTotal >= 0
+        && getAfter(/databases/$(database)/documents/adrianaTickets/$(request.resource.data.firstTicketId)).data.orderId == orderId
+        && getAfter(/databases/$(database)/documents/adrianaTickets/$(request.resource.data.firstTicketId)).data.status == 'reserved';
+      allow update, delete: if !drawLocked() && isAdmin();
+    }
+
+    match /adrianaRaffle/{documentId} {
+      allow read: if documentId == 'decembrina-2026' || documentId == 'draw-lock' || (documentId == 'finance' && isAdmin());
+      allow create: if (isAdmin() && documentId == 'decembrina-2026' && !resultExists() && exists(/databases/$(database)/documents/adrianaRaffle/draw-lock))
+        || (isAdmin() && documentId == 'draw-lock' && !resultExists() && !exists(/databases/$(database)/documents/adrianaRaffle/draw-lock))
+        || (isAdmin() && documentId == 'finance');
+      allow update: if isAdmin() && documentId == 'finance';
+      allow delete: if (isAdmin() && documentId == 'draw-lock' && !resultExists())
+        || (isAdmin() && documentId == 'finance');
+    }
+  }
+}
