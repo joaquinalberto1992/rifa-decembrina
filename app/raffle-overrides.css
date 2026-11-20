@@ -2,6 +2,10 @@
 .prizeItems li{display:grid;grid-template-columns:31px 1fr;align-items:start;gap:9px;padding:10px 0;border-top:1px solid #c69e5838;color:#e7d9d4;font-size:11px;line-height:1.5}
 .prizeItems li b{display:grid;place-items:center;width:26px;height:26px;border:1px solid #d7b45f;border-radius:50%;color:#f1d58f;font-size:9px}
 .unverifiedSelection,.reservationWarning{padding:11px 13px;border:1px solid #d5ad59;border-radius:10px;background:#51200b;color:#ffe7ad;font-size:11px;line-height:1.55}
-.heroArtwork .imageCaption{padding:8px 12px;border:1px solid #edca8066;border-radius:999px;background:#24070fdd;color:#ffe8b2;text-align:center}
+.heroArtwork{width:min(40vw,500px);aspect-ratio:1/1;overflow:hidden;border:1px solid #d8ae58;border-radius:10px;background:#21080e;box-shadow:0 26px 60px #080204a8,0 0 0 5px #b8863a20}
+.heroArtwork img{object-fit:contain!important;object-position:center;border-radius:0;filter:none;animation:none}
+.prizeFeatureImage{min-height:0;aspect-ratio:2/3;background:#21080e}
+.prizeFeatureImage img{object-fit:contain!important;object-position:center}
+.ticket.unverified:not(.selected){border-style:dashed;border-color:#c49b52;background:#35101a;color:#f1d38a}
 .prizeFeatureCopy .goldPill{line-height:1.5}
-@media(max-width:620px){.prizeItems{grid-template-columns:1fr;gap:2px;margin:17px 0 22px}.prizeItems li{padding:8px 0;font-size:10px}.heroArtwork .imageCaption{font-size:7px}.unverifiedSelection{font-size:9px}}
+@media(max-width:620px){.heroCopy{order:1}.heroArtwork{order:0;width:min(100%,500px);aspect-ratio:1/1;margin:0 auto 21px;border-radius:8px}.prizeFeatureImage{min-height:0;aspect-ratio:2/3}.prizeItems{grid-template-columns:1fr;gap:2px;margin:17px 0 22px}.prizeItems li{padding:8px 0;font-size:10px}.unverifiedSelection{font-size:9px}}

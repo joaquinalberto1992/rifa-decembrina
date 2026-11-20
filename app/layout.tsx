@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Gran Rifa Decembrina Premium 2026 · Rifas de Adriana Yuniva',
     description: 'Paquete premium de bebidas y accesorios o $25,000 MXN en efectivo.',
-    images: [{ url: '/rifa-decembrina-premio.png', width: 1024, height: 1024, alt: 'Paquete Decembrino Premium' }],
+    images: [{ url: '/decembrina-poster.png', width: 1024, height: 1024, alt: 'Convocatoria Gran Rifa Decembrina' }],
   },
 };
 
