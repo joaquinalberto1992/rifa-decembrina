@@ -7,5 +7,19 @@
 .prizeFeatureImage{min-height:0;aspect-ratio:2/3;background:#21080e}
 .prizeFeatureImage img{object-fit:contain!important;object-position:center}
 .ticket.unverified:not(.selected){border-style:dashed;border-color:#c49b52;background:#35101a;color:#f1d38a}
+.paymentMethods{display:grid;gap:11px;max-width:850px;margin:30px auto 0;text-align:left}
+.paymentMethods h3{margin:0 0 3px;color:#ffe3a0;font:27px Georgia,serif;text-align:center}
+.paymentMethod{display:flex;align-items:center;gap:15px;padding:15px 17px;border:1px solid #a27b46;border-radius:13px;background:linear-gradient(135deg,#3b0d17,#24080e);color:#fff1d6;box-shadow:0 8px 22px #0003}
+.paymentIcon{display:grid;place-items:center;flex:0 0 55px;width:55px;height:55px;border:1px solid #f0d185;border-radius:50%;background:#fff8ed;color:#1264ad;font-size:16px;font-weight:900}
+.paymentIcon.oxxoIcon{border-radius:9px;color:#d51c2c;font-size:10px}
+.paymentMethod>div{display:grid;gap:4px;flex:1;min-width:0}
+.paymentMethod strong{font-size:14px;color:#ffe5aa}
+.paymentMethod p,.paymentMethod small{margin:0;color:#e4cfc4;font-size:11px;line-height:1.45}
+.paymentMethod small{color:#d7bd9b}
+.paymentNumber{display:block;color:#fff0c9;font-size:14px;letter-spacing:.07em;overflow-wrap:anywhere}
+.paymentMethod>button{flex:0 0 auto;padding:10px 13px;border:1px solid #f0d185;border-radius:8px;background:#e4bd60;color:#321018;font-size:10px;font-weight:900}
+.paymentPending{border-color:#a65b51;background:linear-gradient(135deg,#401019,#2a0a10)}
+.paymentPending .paymentIcon{border-color:#e5b85a}
+.pendingBadge{flex:0 0 auto;padding:7px 9px;border-radius:999px;background:#f2d58f;color:#4e320d;font-size:9px;font-weight:900}
 .prizeFeatureCopy .goldPill{line-height:1.5}
-@media(max-width:620px){.heroCopy{order:1}.heroArtwork{order:0;width:min(100%,500px);aspect-ratio:1/1;margin:0 auto 21px;border-radius:8px}.prizeFeatureImage{min-height:0;aspect-ratio:2/3}.prizeItems{grid-template-columns:1fr;gap:2px;margin:17px 0 22px}.prizeItems li{padding:8px 0;font-size:10px}.unverifiedSelection{font-size:9px}}
+@media(max-width:620px){.heroCopy{order:1}.heroArtwork{order:0;width:min(100%,500px);aspect-ratio:1/1;margin:0 auto 21px;border-radius:8px}.prizeFeatureImage{min-height:0;aspect-ratio:2/3}.prizeItems{grid-template-columns:1fr;gap:2px;margin:17px 0 22px}.prizeItems li{padding:8px 0;font-size:10px}.unverifiedSelection{font-size:9px}.paymentMethods{margin-top:22px}.paymentMethods h3{font-size:23px}.paymentMethod{display:grid;grid-template-columns:42px 1fr auto;gap:10px;padding:12px}.paymentIcon{width:40px;height:40px;min-width:40px;flex-basis:40px;font-size:13px}.paymentMethod strong{font-size:11px}.paymentMethod p,.paymentMethod small{font-size:9px}.paymentNumber{font-size:11px}.paymentMethod>button{grid-column:2/4;padding:9px;font-size:9px}.pendingBadge{font-size:8px;padding:6px 7px}}

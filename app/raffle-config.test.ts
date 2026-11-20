@@ -1,10 +1,14 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { priceFor, TICKET_COUNT, BASE_INVESTMENT, WHATSAPP_NUMBER, PRIZE_NAME, PRIZE_ITEMS } from './raffle-config.ts';
+import { priceFor, TICKET_COUNT, BASE_INVESTMENT, WHATSAPP_NUMBER, PRIZE_NAME, PRIZE_ITEMS, TRANSFER_BENEFICIARY, MERCADO_PAGO_CLABE, OXXO_DEPOSIT_NUMBER, OXXO_VALIDATED } from './raffle-config.ts';
 
 test('keeps the Decembrina raffle inventory, contact, and prize correct', () => {
   assert.equal(TICKET_COUNT, 9000);
   assert.equal(WHATSAPP_NUMBER, '524792293687');
+  assert.equal(TRANSFER_BENEFICIARY, 'Adriana Yuniva Castro Gaxiola');
+  assert.equal(MERCADO_PAGO_CLABE, '722969028917402451');
+  assert.equal(OXXO_DEPOSIT_NUMBER, '5428780531194041');
+  assert.equal(OXXO_VALIDATED, false);
   assert.match(PRIZE_NAME, /bebidas y accesorios/i);
   assert.match(PRIZE_NAME, /25,000 MXN/i);
   assert.ok(PRIZE_ITEMS.some(item => /hielera Igloo/i.test(item)));
